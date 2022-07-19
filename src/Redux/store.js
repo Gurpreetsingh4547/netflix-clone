@@ -1,5 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
-import movieSlice from './reducerAndActions';
+import { configureStore } from '@reduxjs/toolkit'
+import movieSlice from './reducerAndActions'
 
 /**
  * create store for my app
@@ -9,6 +9,6 @@ const store = configureStore({
   reducer: {
     movies: movieSlice
   }
-});
+})
 
-export default store;
+export default store

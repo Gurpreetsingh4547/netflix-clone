@@ -1,11 +1,11 @@
 // import React and react-redux
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react'
 
 // packges
-import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom'
 
 // import context for Authentication
-import loginAuth from './userAuthentication';
+import loginAuth from './userAuthentication'
 
 /**
  * Login Page - verifty user with email and password
@@ -13,22 +13,22 @@ import loginAuth from './userAuthentication';
  */
 const Login = () => {
   // use context from loginAuthenication context
-  const userVerifiy = useContext(loginAuth);
+  const userVerifiy = useContext(loginAuth)
 
   // creating the user-email and user-password state for getting input values
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
+  const [userEmail, setUserEmail] = useState('')
+  const [userPassword, setUserPassword] = useState('')
 
   // destructuring the userVerifiy
-  const { userLogin, setUserLogin, setUserName } = userVerifiy;
+  const { userLogin, setUserLogin, setUserName } = userVerifiy
 
   // setting state of user email and password from inputs
   function handleUserEmail (e) {
-    setUserEmail(e.target.value);
+    setUserEmail(e.target.value)
   }
 
   function handleUserPassword (e) {
-    setUserPassword(e.target.value);
+    setUserPassword(e.target.value)
   }
 
   // verify the user with email and password
@@ -36,18 +36,18 @@ const Login = () => {
     // used static username and password
     if (userEmail === 'admin@gmail.com' && userPassword === 'admin') { // verify the user name and password the user have enter
       // Set userlogged in true
-      setUserLogin(!userLogin);
+      setUserLogin(!userLogin)
 
       // Set username
-      setUserName('admin');
+      setUserName('admin')
     } else { // if user enter incorrect password or username
-      alert('Username or Passwrod is Incorrect');
+      alert('Username or Passwrod is Incorrect')
     }
-  };
+  }
 
   // after logged in userLogin is true and nevigate user to userLogin
   if (userLogin) {
-    return <Navigate to='/dashboard' />;
+    return <Navigate to='/dashboard' />
   }
 
   return (
@@ -81,7 +81,7 @@ const Login = () => {
         >Log in</button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

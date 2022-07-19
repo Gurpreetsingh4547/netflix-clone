@@ -1,18 +1,18 @@
 // import react hooks
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 // Css
-import './App.css';
+import './App.css'
 
 // React Router Dom
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 // import other component
-import Login from './components/Login';
-import DeshBoard from './components/Dashboard';
+import Login from './components/Login'
+import DeshBoard from './components/Dashboard'
 
 // import userAuthentication context
-import loginAuth from './components/userAuthentication';
+import loginAuth from './components/userAuthentication'
 
 /**
  * Create routes for all components
@@ -20,10 +20,10 @@ import loginAuth from './components/userAuthentication';
  */
 const App = () => {
   // login state for user verfication
-  const [userLogin, setUserLogin] = useState(false);
+  const [userLogin, setUserLogin] = useState(false)
 
   // username
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState('')
   return (
     <>
       <Router>
@@ -38,7 +38,7 @@ const App = () => {
         </loginAuth.Provider>
       </Router>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

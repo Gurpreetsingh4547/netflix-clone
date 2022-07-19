@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React from 'react'
 
 /**
  * Movie card for every perticular movie with movie details and image
@@ -8,7 +8,7 @@ import React from 'react';
  */
 function MoviesItems (props) {
   // desructuring the props
-  const { movieImage, movieName, movieReleaseData } = props;
+  const { movieImage, movieName, movieReleaseData } = props
 
   return (
         <div className='container'>
@@ -23,7 +23,7 @@ function MoviesItems (props) {
             </div>
 
         </div>
-  );
+  )
 }
 
-export default MoviesItems;
+export default MoviesItems

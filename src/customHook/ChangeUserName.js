@@ -1,7 +1,7 @@
-import { useContext } from 'react';
+import { useContext } from 'react'
 
 // import userAuthentication context
-import loginAuth from '../components/userAuthentication';
+import loginAuth from '../components/userAuthentication'
 
 /**
  * creating custom hook for changing name
@@ -9,16 +9,16 @@ import loginAuth from '../components/userAuthentication';
  */
 const useChangeName = (username) => {
   // use userAuthentication context
-  const userVerifiy = useContext(loginAuth);
+  const userVerifiy = useContext(loginAuth)
 
-  const { setUserName } = userVerifiy;
+  const { setUserName } = userVerifiy
 
   // function to update the name
   const handleUserName = () => {
-    setUserName(username);
-  };
+    setUserName(username)
+  }
   // return the function user
-  return [handleUserName];
-};
+  return [handleUserName]
+}
 
-export default useChangeName;
+export default useChangeName

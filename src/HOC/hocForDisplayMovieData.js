@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 // packages
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
 
 // import actions from reducers
-import { moviesData } from '../Redux/reducerAndActions';
+import { moviesData } from '../Redux/reducerAndActions'
 /**
  * create hoc compoent to get data from redux store
  * @param {*} Wrapcomponent
@@ -13,20 +13,20 @@ import { moviesData } from '../Redux/reducerAndActions';
 const AllMoviesData = (Wrapcomponent, entity) => {
   return function fetchMovieData () {
     // getting the state from reducer using useSelector
-    const { movies } = useSelector(state => state.movies);
+    const { movies } = useSelector(state => state.movies)
 
     // dispatch an action for getting new state from redux store
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     useEffect(() => {
-      dispatch(moviesData);
-    });
+      dispatch(moviesData)
+    })
     return (
         <>
           <Wrapcomponent movies={movies} />
         </>
-    );
-  };
-};
+    )
+  }
+}
 
-export default AllMoviesData;
+export default AllMoviesData

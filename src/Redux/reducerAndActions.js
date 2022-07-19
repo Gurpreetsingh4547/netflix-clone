@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import allMovies from '../movies';
+import { createSlice } from '@reduxjs/toolkit'
+import allMovies from '../movies'
 
 /**
  * create reducers and actions
@@ -13,11 +13,11 @@ const movieSlice = createSlice({
   reducers: {
     moviesData: (state) => {
       // eslint-disable-next-line no-unused-expressions
-      state.movies;
+      state.movies
     }
   }
-});
+})
 
-export const { moviesData } = movieSlice.actions;
+export const { moviesData } = movieSlice.actions
 
-export default movieSlice.reducer;
+export default movieSlice.reducer

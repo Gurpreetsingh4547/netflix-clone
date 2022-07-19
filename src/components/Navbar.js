@@ -1,30 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
 
 // import context from authentication
-import loginAuth from './userAuthentication';
+import loginAuth from './userAuthentication'
 
 // import Link from react-router-dom
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 // import custon hook for changing name
-import useChangeName from '../customHook/ChangeUserName';
+import useChangeName from '../customHook/ChangeUserName'
 
 const Navbar = () => {
-  const [handleUserName] = useChangeName('john');
+  const [handleUserName] = useChangeName('john')
   // assgin the value of context from loginAuthenication context
-  const userVerifiy = useContext(loginAuth);
+  const userVerifiy = useContext(loginAuth)
 
   // destructuring the userVerifiy
-  const { userLogin, setUserLogin, userName } = userVerifiy;
+  const { userLogin, setUserLogin, userName } = userVerifiy
 
   // user logout and setUserlogin false
   function handleLogout () {
-    setUserLogin(!userLogin);
+    setUserLogin(!userLogin)
   }
 
   const handleUsername = () => {
-    handleUserName();
-  };
+    handleUserName()
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -71,7 +71,7 @@ const Navbar = () => {
       </div>
     </nav>
 
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

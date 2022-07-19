@@ -1,8 +1,8 @@
-import { createContext } from 'react';
+import { createContext } from 'react'
 
 /**
    * Create Context for Login aunthentication
    */
-const loginAuth = createContext();
+const loginAuth = createContext()
 
-export default loginAuth;
+export default loginAuth

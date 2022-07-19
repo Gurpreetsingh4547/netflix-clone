@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
 // import all movies from the hoc component
-import allMoviesData from './hocForDisplayMovieData';
+import allMoviesData from './hocForDisplayMovieData'
 
 // a card for every movie
-import Moviesitems from './MoviesItems';
+import Moviesitems from './MoviesItems'
 
 const dashboardMovies = (props) => {
-  const { movies } = props;
+  const { movies } = props
   return (
     <div>
         <div className='container my-3'></div>
@@ -22,14 +22,14 @@ const dashboardMovies = (props) => {
                   <Moviesitems movieImage = {item.Poster} movieName = {item.Title} movieReleaseData = {item.Year}/>
 
                   </div>
-                );
+                )
               })
             }
         </div>
     </div>
-  );
-};
+  )
+}
 
-const allMovies = allMoviesData(dashboardMovies, 'allMovies');
+const allMovies = allMoviesData(dashboardMovies, 'allMovies')
 
-export default allMovies;
+export default allMovies
