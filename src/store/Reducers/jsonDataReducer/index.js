@@ -5,18 +5,19 @@ import getFAkeJosnData from '../../const';
 
 // Initial State
 const initialState = {
-  movies: [],
+  data: null,
 };
 // eslint-disable-next-line default-param-last
 const jsonDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case getFAkeJosnData:
       return {
-        ...state.movies, movies: action.payload.Search,
+        ...state,
+        data: action.payload,
       };
 
     default:
-      return state.movies;
+      return state;
   }
 };
 

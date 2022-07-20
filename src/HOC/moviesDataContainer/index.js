@@ -14,7 +14,7 @@ import CallFakeJsonData from '../../store/actions';
 const AllMoviesData = (Wrapcomponent) => {
   function fetchMovieData() {
     // getting the state from reducer using useSelector
-    const { movies } = useSelector((state) => state);
+    const movies = useSelector((state) => state);
     // dispatch an action for getting new state from redux store
     const dispatch = useDispatch();
 
@@ -30,4 +30,11 @@ const AllMoviesData = (Wrapcomponent) => {
   return fetchMovieData;
 };
 
+// const mapStateToProps = (state) => ({ data: state.data });
+
+// const mapDispatchToProps = (dispatch) => ({
+//   CallFakeJsonData: () => dispatch(CallFakeJsonData),
+// });
+
+// export default connect(mapStateToProps, mapDispatchToProps)(AllMoviesData);
 export default AllMoviesData;
