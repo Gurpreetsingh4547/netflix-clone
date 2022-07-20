@@ -1,30 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 
 // import context from authentication
-import loginAuth from './userAuthentication'
+import { Link } from 'react-router-dom';
+import LoginAuth from '../../Context/userAuthentication';
 
 // import Link from react-router-dom
-import { Link } from 'react-router-dom'
 
 // import custon hook for changing name
-import useChangeName from '../customHook/ChangeUserName'
+import useChangeName from '../../customHook/useChangeUserName';
 
-const Navbar = () => {
-  const [handleUserName] = useChangeName('john')
+function Navbar() {
+  const [handleUserName] = useChangeName('john');
   // assgin the value of context from loginAuthenication context
-  const userVerifiy = useContext(loginAuth)
+  const userVerifiy = useContext(LoginAuth);
 
   // destructuring the userVerifiy
-  const { userLogin, setUserLogin, userName } = userVerifiy
+  const { userLogin, setUserLogin, userName } = userVerifiy;
 
   // user logout and setUserlogin false
-  function handleLogout () {
-    setUserLogin(!userLogin)
+  function handleLogout() {
+    setUserLogin(!userLogin);
   }
 
   const handleUsername = () => {
-    handleUserName()
-  }
+    handleUserName();
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -45,22 +45,22 @@ const Navbar = () => {
         <div className="d-flex align-items-center">
 
           {/* display userName */}
-          <p className='my-2 '>{userName}</p>
+          <p className="my-2 ">{userName}</p>
 
           <div className="dropdown mx-5">
             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Profile
+              Profile
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
               {/* Logout Button */}
               <li>
-                <button className='btn btn-primary' onClick={handleLogout}>Logout</button>
+                <button type="button" className="btn btn-primary" onClick={handleLogout}>Logout</button>
               </li>
 
               {/* change username with custom hook */}
               <li>
-                <button className='btn btn-primary my-3' onClick={handleUsername}>Change Username</button>
+                <button type="button" className="btn btn-primary my-3" onClick={handleUsername}>Change Username</button>
               </li>
 
             </ul>
@@ -71,7 +71,7 @@ const Navbar = () => {
       </div>
     </nav>
 
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

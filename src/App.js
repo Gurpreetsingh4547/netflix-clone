@@ -1,44 +1,34 @@
-// import react hooks
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react';
 
-// Css
-import './App.css'
+// USER AUTHENTICATION
+import LoginAuth from './Context/userAuthentication';
 
-// React Router Dom
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
-// import other component
-import Login from './components/Login'
-import DeshBoard from './components/Dashboard'
-
-// import userAuthentication context
-import loginAuth from './components/userAuthentication'
-
+// ROUTES
+import Roots from './Roots';
 /**
  * Create routes for all components
  * @returns app components return all componets's path
  */
-const App = () => {
-  // login state for user verfication
-  const [userLogin, setUserLogin] = useState(false)
+function App() {
+  // create state for set user login true or false on user logout using context
+  const [userLogin, setUserLogin] = useState(false);
 
-  // username
-  const [userName, setUserName] = useState('')
+  // Create state for set username on login and store username in context
+  const [userName, setUserName] = useState('');
+
+  // use memo hook for prevent to re-run my context wheneven its re-render
+  const AuthenticateUser = useMemo(() => ({
+    userLogin, setUserLogin, userName, setUserName,
+  }));
+
   return (
-    <>
-      <Router>
-        {/* Provide the context value and methods to components */}
-
-        <loginAuth.Provider value={{ userLogin, setUserLogin, userName, setUserName }}>
-          <Routes>
-            {/* Define all paths */}
-            <Route path='/' element={<Login />}></Route>
-            <Route path='/dashboard' element={<DeshBoard />}></Route>
-          </Routes>
-        </loginAuth.Provider>
-      </Router>
-    </>
-  )
+    <div>
+      <LoginAuth.Provider value={AuthenticateUser}>
+        {/* Roots */}
+        <Roots />
+      </LoginAuth.Provider>
+    </div>
+  );
 }
 
-export default App
+export default App;
