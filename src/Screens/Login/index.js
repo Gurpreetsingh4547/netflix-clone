@@ -25,16 +25,25 @@ function Login() {
   // destructuring the userVerifiy
   const { userLogin, setUserLogin, setUserName } = userVerifiy;
 
-  // setting state of user email and password from inputs
+  /**
+   * Set user Email in state onChange Event at Email input box
+   * @param {object} event
+   */
   function handleUserEmail(event) {
     setUserEmail(event.target.value);
   }
-
+  /**
+   * Set password in state onChange Event at password Input box
+   * @param {object} event
+   */
   function handleUserPassword(event) {
     setUserPassword(event.target.value);
   }
 
-  // verify the user with email and password
+  /**
+   * verify the user with email and password
+   * @returns
+   */
   function handleLogin() {
     // used static username and password
     if (userEmail === 'admin@gmail.com' && userPassword === 'admin') { // verify the user name and password the user have enter
@@ -54,7 +63,10 @@ function Login() {
     });
   }
 
-  // prevent refresh page on the submittion of form
+  /**
+   * prevent refresh page on the submittion of form
+   * @param {object} event
+   */
   function handleSubmit(event) {
     event.preventDefault();
   }
