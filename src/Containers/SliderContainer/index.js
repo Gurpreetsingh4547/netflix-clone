@@ -1,23 +1,22 @@
 import React from 'react';
 
-// packages
-// import Carosel from 'carousel-react-rcdev';
+// PACKAGES
+import Carosel from 'carousel-react-rcdev';
 
 // import hoc component to display movie image in slider
 import MoviesDataConatiner from '../../HOC/moviesDataContainer';
 
 /**
- * slider for all trending movies
- * @param {*} props
- * @returns movie images for slider
+ * Slider for all trending movies
+ * @param {object} props
  */
-const slider = () => (
+const slider = ({ movies }) => (
   <>
     <h1 className="text-danger bg-dark text-center my-5">Trending Movies</h1>
-    <div style={{ width: '100%' }}>
-      {/* <Carosel>
-          {
-            movies.Search.map((item) => (
+    <div>
+      <Carosel>
+        {
+            movies.data.Search.map((item) => (
               <img
                 style={{ width: '250px', height: '250px', marginLeft: '10px' }}
                 key={item.imdbID}
@@ -26,11 +25,12 @@ const slider = () => (
               />
             ))
           }
-        </Carosel> */}
+      </Carosel>
     </div>
   </>
 );
 
+// Warp Slider component to hoc component to get hoc functionnality
 const trendingMovies = MoviesDataConatiner(slider);
 
 export default trendingMovies;

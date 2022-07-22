@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 // PACKAGES
-import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 // ACTIONS
 import CallFakeJsonData from '../../store/actions';
@@ -12,29 +12,33 @@ import CallFakeJsonData from '../../store/actions';
  * @returns Wrapcomponent with additon functionality
  */
 const AllMoviesData = (Wrapcomponent) => {
-  function fetchMovieData() {
-    // getting the state from reducer using useSelector
-    const movies = useSelector((state) => state);
-    // dispatch an action for getting new state from redux store
-    const dispatch = useDispatch();
-
+  function fetchMovieData(props) {
+    // Dispatch an action to store to get the data from store
     useEffect(() => {
-      dispatch(CallFakeJsonData);
+      props.CallFakeJsonData();
     }, []);
     return (
       <div>
-        <Wrapcomponent movies={movies} />
+
+        {/* Passing my store's state to warp component */}
+        <Wrapcomponent movies={props.state.movies.jsonDataReducer} />
+
       </div>
     );
   }
-  return fetchMovieData;
+
+  // map my store's state to props
+  const mapStatetoprops = (state) => ({
+    state,
+  });
+
+  // map my store's actions to props
+  const mapDispatchToProps = (dispatch) => ({
+    CallFakeJsonData: () => dispatch(CallFakeJsonData()),
+  });
+
+  // Connect component with store's state and actions
+  return connect(mapStatetoprops, mapDispatchToProps)(fetchMovieData);
 };
 
-// const mapStateToProps = (state) => ({ data: state.data });
-
-// const mapDispatchToProps = (dispatch) => ({
-//   CallFakeJsonData: () => dispatch(CallFakeJsonData),
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(AllMoviesData);
 export default AllMoviesData;
