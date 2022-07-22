@@ -1,16 +1,18 @@
 import React, { useContext } from 'react';
 
 // import context from authentication
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import LoginAuth from '../../Context/userAuthentication';
-
-// import Link from react-router-dom
 
 // import custon hook for changing name
 import useChangeName from '../../customHook/useChangeUserName';
 
+// ROUTES
+import { SecureRoots } from '../../Roots/RootsName';
+
 function Navbar() {
   const [handleUserName] = useChangeName('john');
+
   // assgin the value of context from loginAuthenication context
   const userVerifiy = useContext(LoginAuth);
 
@@ -22,9 +24,15 @@ function Navbar() {
     setUserLogin(!userLogin);
   }
 
+  // Custom hook to change username
   const handleUsername = () => {
     handleUserName();
   };
+
+  // if user
+  if (userLogin === false) {
+    return <Navigate to={SecureRoots} />;
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">

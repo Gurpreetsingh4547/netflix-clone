@@ -13,7 +13,7 @@ import MoviesDataConatiner from '../../HOC/moviesDataContainer';
 const slider = ({ movies }) => (
   <>
     <h1 className="text-danger bg-dark text-center my-5">Trending Movies</h1>
-    <div>
+    <div style={{ widht: '100%' }}>
       <Carosel>
         {
             movies.data.Search.map((item) => (

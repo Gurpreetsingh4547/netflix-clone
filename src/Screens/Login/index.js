@@ -1,11 +1,14 @@
 import React, { useContext, useState } from 'react';
-// import { Navigate } from 'react-router-dom';
+
+// PACKAGES
+import { Navigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 // import context for Authentication
 import loginAuth from '../../Context/userAuthentication';
 
 // Route
-// import { SecureRoots } from '../../Roots/RootsName';
+import { SecureRoots } from '../../Roots/RootsName';
 
 /**
  * Login Page - verifty user with email and password
@@ -40,12 +43,24 @@ function Login() {
 
       // Set username
       setUserName('admin');
+
+      return;
     }
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>',
+    });
   }
 
   // prevent refresh page on the submittion of form
   function handleSubmit(event) {
     event.preventDefault();
+  }
+
+  if (userLogin) {
+    return <Navigate to={SecureRoots} />;
   }
 
   return (
