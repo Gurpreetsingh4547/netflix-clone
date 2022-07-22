@@ -16,6 +16,7 @@ const slider = ({ movies }) => (
     <div style={{ widht: '100%' }}>
       <Carosel>
         {
+          // map all movies image in slider
             movies.data.Search.map((item) => (
               <img
                 style={{ width: '250px', height: '250px', marginLeft: '10px' }}

@@ -11,11 +11,11 @@ const dashboardMovies = ({ movies }) => (
     <div className="row">
       <h1 className="text-center bg-dark text-danger my-5">Netflix Most Watched Movies</h1>
       {
-          //  iterting the array using map
+          //  map all movies
           movies.data.Search.map((item) => (
             <div className="col-md-2" key={item.imdbID}>
 
-              {/* passing props to MoviesDetail card component to render all movies */}
+              {/* passing props to MoviesDetail card component to render perticular movie */}
               <MoviesDetailCard
                 movieImage={item.Poster}
                 movieName={item.Title}
