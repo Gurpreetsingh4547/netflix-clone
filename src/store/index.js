@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 // Ruducers
-import AllReducers from '../Reducers/CombineReducer';
+import AllReducers from './Reducers';
 
 // make a centeral store
 const store = configureStore({

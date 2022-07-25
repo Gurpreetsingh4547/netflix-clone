@@ -2,7 +2,7 @@
 import { combineReducers } from 'redux';
 
 // Reducers
-import jsonDataReducer from '../jsonDataReducer';
+import jsonDataReducer from './jsonDataReducer';
 
 const allReducers = combineReducers({ jsonDataReducer });
 

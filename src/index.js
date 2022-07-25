@@ -11,9 +11,7 @@ import './index.css';
 import App from './App';
 
 // import redux store to provide state to whole app
-import store from './store/Store';
-
-import reportWebVitals from './reportWebVitals';
+import store from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,5 +22,3 @@ root.render(
     </Provider>
   </React.StrictMode>,
 );
-
-reportWebVitals();

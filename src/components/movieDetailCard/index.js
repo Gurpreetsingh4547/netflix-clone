@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 
 /**
@@ -8,7 +7,7 @@ import React from 'react';
  */
 function MoviesItems(props) {
   // desructuring the props
-  const { movieImage, movieName, movieReleaseData } = props;
+  const { movieImage = '', movieName = '', movieReleaseData = '' } = props || {};
 
   return (
     <div className="container">
@@ -22,9 +21,7 @@ function MoviesItems(props) {
           <p className="card-text">{movieName}</p>
           <p>{movieReleaseData}</p>
         </div>
-
       </div>
-
     </div>
   );
 }
