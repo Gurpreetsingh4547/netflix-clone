@@ -4,9 +4,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
 
-// CSS
-import './index.css';
-
 // COMPONENTS
 import App from './App';
 
