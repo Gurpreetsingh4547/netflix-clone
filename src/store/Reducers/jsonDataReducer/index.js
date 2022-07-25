@@ -2,13 +2,20 @@
 import getFAkeJosnData from '../../const';
 
 // Initial State
-const initialState = { data: { Search: [{ imdbID: 1 }] } };
-// eslint-disable-next-line default-param-last
-const jsonDataReducer = (state = initialState, action) => {
+const initialState = {
+  data: {
+    Search: { Search: [{ imdbID: 1 }] },
+  },
+};
+const jsonDataReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case getFAkeJosnData:
       return {
-        ...state, data: action.payload,
+        ...state,
+        data: {
+          ...state.data,
+          Search: action.payload,
+        },
       };
     default:
       return state;

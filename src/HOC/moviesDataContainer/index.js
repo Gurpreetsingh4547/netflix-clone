@@ -7,12 +7,13 @@ import { connect } from 'react-redux';
 import CallFakeJsonData from '../../store/actions';
 /**
  * create hoc compoent to get data from redux store
- * @param {*} Wrapcomponent
- * @param {*} entity
+ * @param {component} Wrapcomponent
  * @returns Wrapcomponent with additon functionality
  */
 const AllMoviesData = (Wrapcomponent) => {
-  function fetchMovieData(props) {
+  const fetchMovieData = (props) => {
+    // destructuring props
+    const { state: { movies: { jsonDataReducer: { data } } } } = props;
     // Dispatch an action to store to get the data from store
     useEffect(() => {
       props.CallFakeJsonData();
@@ -21,11 +22,10 @@ const AllMoviesData = (Wrapcomponent) => {
       <div>
 
         {/* Passing my store's state to warp component */}
-        <Wrapcomponent movies={props.state.movies.jsonDataReducer} />
-
+        <Wrapcomponent movies={data} />
       </div>
     );
-  }
+  };
 
   // map my store's state to props
   const mapStatetoprops = (state) => ({
